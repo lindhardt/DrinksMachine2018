@@ -11,6 +11,8 @@ namespace DrinksMachine
     {
         static void Main(string[] args)
         {
+            #region Collections and Linq
+
             Hashtable prices = new Hashtable();
 
             prices.Add("Café au Lait", 1.99M);
@@ -22,14 +24,19 @@ namespace DrinksMachine
             prices.Add("English Tea", 1.99M);
             prices.Add("Juice", 1.99M);
 
+            Console.Write("Press any key:");
+            Console.ReadKey();
 
+            #endregion
 
+            #region Drinks Struct
             Drinks.Coffee coffee = new Drinks.Coffee(0, "Arabica", "Kenya");
 
             Console.WriteLine("Country of orgin: {0}", coffee.CountryOfOrigin);
             Console.WriteLine("Bean:             {0}", coffee.Bean);
             Console.WriteLine("Strength:         {0}", coffee.Strength);
 
+            Console.Write("Press any key:");
             Console.ReadKey();
 
             Drinks.Coffee coffee1 = new Drinks.Coffee()
@@ -46,7 +53,9 @@ namespace DrinksMachine
             Console.WriteLine("Bean:             {0}", coffee.Bean);
             Console.WriteLine("Strength:         {0}", coffee.Strength);
 
+            Console.Write("Press any key:");
             Console.ReadKey();
+            #endregion
         }
     }
 }
