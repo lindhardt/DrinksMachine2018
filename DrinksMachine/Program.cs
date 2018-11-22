@@ -15,14 +15,25 @@ namespace DrinksMachine
 
             Hashtable prices = new Hashtable();
 
-            prices.Add("Café au Lait", 1.99M);
             prices.Add("Café Americano", 1.89M);
             prices.Add("Café Mocha", 2.99M);
             prices.Add("Cappuccino", 2.49M);
             prices.Add("Espresso", 1.49M);
             prices.Add("Espresso Romano", 1.59M);
             prices.Add("English Tea", 1.99M);
+            prices.Add("Café au Lait", 1.99M);
             prices.Add("Juice", 1.99M);
+
+            var bargins =
+                from string drink in prices.Keys
+                where (Decimal)prices[drink] < 2.00M
+                orderby prices[drink] ascending
+                select drink;
+
+            foreach( string bargin in bargins)
+            {
+                Console.WriteLine(bargin + "  " + prices[bargin]);
+            }
 
             Console.Write("Press any key:");
             Console.ReadKey();
